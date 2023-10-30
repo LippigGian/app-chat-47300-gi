@@ -53,13 +53,17 @@ socket.on("messageLogs", data =>{
 
 //Leo cuando un nuevo usuario se conecta y lo muestro con un modal
 socket.on("newUserConnected", data =>{
-    swal.fire({
-        toast: true,
-        position: "top-end",
-        showConfirmationButton: false,
-        timer : 3000,
-        title : `${data} se ha unido al chat`,
-        icon : "success"
-
-    })
+    //If para que  muestre quien se conecto UNICAMENTE  si yo ya estoy logeado como usuario.
+    if(user){
+        
+        swal.fire({
+            toast: true,
+            position: "top-end",
+            showConfirmationButton: false,
+            timer : 3000,
+            title : `${data} se ha unido al chat`,
+            icon : "success"
+            
+        })
+    }
 })
